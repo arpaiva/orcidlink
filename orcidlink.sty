@@ -1,0 +1,22 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{orcidlink}[2020/05/27 Links to ORCIDs in LaTeX documents]
+
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+
+\definecolor{lime}{HTML}{A6CE39}
+\DeclareRobustCommand{\orcidicon}{%
+	\begin{tikzpicture}
+	\draw[lime, fill=lime] (0,0)
+	circle [radius=0.16]
+	node[white] {{\fontfamily{qag}\selectfont \tiny ID}};
+	\draw[white, fill=white] (-0.0625,0.095)
+	circle [radius=0.007];
+	\end{tikzpicture}
+	\hspace{-2mm}
+}
+
+\hypersetup{colorlinks}
+\newcommand{\orcid}[1]{\href{https://orcid.org/#1}{\orcidicon}}
+
